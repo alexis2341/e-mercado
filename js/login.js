@@ -3,6 +3,11 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
-
-   
 });
+function infoUsuario (){
+    inputUsuario = document.getElementById("usuario");
+    localStorage.setItem("username", inputUsuario.value);
+    let usuario = localStorage.getItem("username");
+
+
+}
