@@ -33,7 +33,7 @@ return result;
 
 
 
-function showCategoriesList(categoriesArrayarray){
+function showCategoriesList(categoriesArray){
 
     let htmlContentToAppend = "";
     for(let i = 0; i < categoriesArray.length; i++){
