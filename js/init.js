@@ -41,7 +41,6 @@ var getJSONData = function(url){
 }
 let usuario = localStorage.getItem("username");
 document.getElementById("navUsuario").innerHTML= usuario;
-consolelog(algo);
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
