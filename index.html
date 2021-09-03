@@ -38,20 +38,28 @@
 </head>
 
 <body class="text-center">
-  <form class="loginForm">
+  
+    
+  <div class="loginForm">
+    
     <img class="loginImg" src="img/login.png" height="300px">
+    <br><br><br>
+    
     <h2>Por favor ingrese aquí</h2>
-    <input id="usuario" type="email" placeholder="Email" required>
+   <br><br>
+    
+    <input id="usuario" type="email" placeholder="Email" >
     <br>
-    <input  type="password" placeholder="Contraseña" required>
+    
+    
+    <input  id="password" type="password" placeholder="Contraseña" >
     <br>
-    <button type="submit" onclick= "infoUsuario() ;window.location='inicio.html'"></button>
+    <input type="checkbox" id="recuerdame">
+  <label for="recuerdame"> Recuérdame</label><br>
+    <button id="ingresar" class="btn btn-light btn-block"  onclick="infoUsuario()">Ingresar</button>
+    
 
-
-
-    <input type="button" id="botonIngresar" value="Ingresar" onclick= "infoUsuario() ;window.location='inicio.html'" />
-  </form>
-
+  </div>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>

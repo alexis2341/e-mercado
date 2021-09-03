@@ -1,4 +1,4 @@
-var categoriesArray = [];
+var productsArray = [];
 var minCost;
 var maxCost;
 
@@ -33,11 +33,11 @@ return result;
 
 
 
-function showCategoriesList(categoriesArray){
+function showProductsList(productsArray){
 
     let htmlContentToAppend = "";
-    for(let i = 0; i < categoriesArray.length; i++){
-        let producto = categoriesArray[i];
+    for(let i = 0; i < productsArray.length; i++){
+        let producto = productsArray[i];
 
      if(((minCost == undefined) || (minCost != undefined && parseInt(producto.cost) >= minCost)) && ((maxCost == undefined) || (maxCost != undefined && parseInt(producto.cost) <= maxCost))) {
 
@@ -73,25 +73,25 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            categoriesArray = resultObj.data;
+            productsArray = resultObj.data;
             //Muestro las categorías ordenadas
-            showCategoriesList(categoriesArray);
+            showProductsList(productsArray);
         }
     });
 });
 
 
 document.getElementById("ascendentePrecio").addEventListener("click", function(){
-    categoriesArray = sortProductos(1, categoriesArray);
-    showCategoriesList(categoriesArray);
+    productsArray = sortProductos(1, productsArray);
+    showProductsList(productsArray);
 });
 document.getElementById("descendentePrecio").addEventListener("click", function(){
-    categoriesArray = sortProductos(2, categoriesArray);
-    showCategoriesList(categoriesArray);
+    productsArray = sortProductos(2, productsArray);
+    showProductsList(productsArray);
 });
 document.getElementById("descendenteRelevancia").addEventListener("click", function(){
-    categoriesArray = sortProductos(3, categoriesArray);
-    showCategoriesList(categoriesArray);
+    productsArray = sortProductos(3, productsArray);
+    showProductsList(productsArray);
 });
 
 
@@ -113,7 +113,7 @@ if((maxCost != undefined) && (maxCost != "") && (parseInt(maxCost)) >= 0){
 }else{
     maxCost = undefined;
 }
- showCategoriesList(categoriesArray);
+ showProductsList(productsArray);
 });
 document.getElementById("limpiar").addEventListener("click", function(){
     minCost = document.getElementById("rangomin").value;
@@ -121,5 +121,5 @@ document.getElementById("limpiar").addEventListener("click", function(){
 
     minCost = undefined;
     maxCost = undefined;
-    showCategoriesList(categoriesArray);
+    showProductsList(productsArray);
 })

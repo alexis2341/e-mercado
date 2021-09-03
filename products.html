@@ -29,29 +29,29 @@
       <p class="lead">Verás aquí todos los productos del sitio.</p>
       
       
-      <div id="filtroProductos">
-
-        <p>Filtro</p>
-
-        <input type="number" placeholder="min" id="rangomin">
-
-        <br><br><br>
-
-        <input type="number" placeholder="max" id="rangomax">
-
-        <button id="filtrar">Filtrar</button>
-        <button id="limpiar">Limpiar</button>
+      <div class="container">
         
+        <p>Filtrar por precio:</p>
 
-      </div>
+        <input class="form-control" type="number" placeholder="min" id="rangomin">
 
-      <div>
-        <p>funcionalidades de orden</p>
-        <button id="ascendentePrecio">Precio ascendente</button>
-        <button id="descendentePrecio">Precio descendente</button>
-        <button id="descendenteRelevancia">Relevancia descendente</button>
-      </div>
-  
+        <br>
+
+        <input class="form-control" type="number" placeholder="max" id="rangomax">
+
+        <button id="filtrar" class="btn btn-light btn-block">Filtrar</button>
+        <button id="limpiar" class="btn btn-link btn-sm" >Limpiar</button>
+<br>
+        <hr>
+    <br>    
+
+      
+        <p>Ordenar por:</p>
+        <button class="btn btn-light btn-block" id="ascendentePrecio">Precio ascendente</button>
+        <button class="btn btn-light btn-block" id="descendentePrecio">Precio descendente</button>
+        <button class="btn btn-light btn-block" id="descendenteRelevancia">Relevancia descendente</button>
+      
+    </div>
     </div>
     
       <div class="container">
