@@ -42,6 +42,7 @@ function showProductsList(productsArray){
      if(((minCost == undefined) || (minCost != undefined && parseInt(producto.cost) >= minCost)) && ((maxCost == undefined) || (maxCost != undefined && parseInt(producto.cost) <= maxCost))) {
 
         htmlContentToAppend += `
+        <a href="product-info.html" class="list-group-item list-group-item-action">
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
@@ -59,6 +60,7 @@ function showProductsList(productsArray){
                 </div>
             </div>
         </div>
+        </a>
         `
      }
 

@@ -8,7 +8,7 @@ const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
 var showSpinner = function(){
-  document.getElementById("spinner-wrapper").style.display = "block";
+ // document.getElementById("spinner-wrapper").style.display = "block";
 }
 
 var hideSpinner = function(){
@@ -17,7 +17,7 @@ var hideSpinner = function(){
 
 var getJSONData = function(url){
     var result = {};
-    showSpinner();
+  //  showSpinner();
     return fetch(url)
     .then(response => {
       if (response.ok) {
@@ -29,7 +29,7 @@ var getJSONData = function(url){
     .then(function(response) {
           result.status = 'ok';
           result.data = response;
-          hideSpinner();
+     //     hideSpinner();
           return result;
     })
     .catch(function(error) {
