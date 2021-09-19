@@ -25,9 +25,9 @@ function showComments(commentsArray){
         let comment = commentsArray[i];
 
         htmlContentToAppend += `
-        <p> ` + comment.user + " " + comment.score +`</p> <br>
-        <p> ` + comment.description + `</p> <br>
-        <p> ` + comment.dataTime + `</p>`
+        <p><b> ` + comment.user + " " + comment.score +`</b></p> 
+        <p> ` + comment.description + `</p> 
+        <p> ` + comment.dateTime + `</p> <br><hr>`
     }
     document.getElementById("comments").innerHTML = htmlContentToAppend;
 }
