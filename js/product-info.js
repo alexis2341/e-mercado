@@ -19,6 +19,19 @@ function showImagesGallery(array){
     }
 }
 
+function showRelatedProducts(rpArray, productsArray){
+    //let htmlContentToAppend = "";
+    for( let i=0;  i<rpArray.length; i++){
+      // let product = productsArray;
+        document.getElementById("relatedProducts").innerHTML += `<h1><br>` + rpArray[productsArray[i]].name +`</h1><br> `;
+       // htmlContentToAppend += `<h4>`+ product.name +`</h4>`;
+        
+
+    }
+}
+
+
+
 function showComments(commentsArray){
     let htmlContentToAppend = "";
     for(let i=0; i<commentsArray.length; i++){
@@ -40,6 +53,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             product = resultObj.data;
+            relatedproduct = product.relatedProducts;
+            console.log(product);
+            console.log(relatedproduct);
            
             let productNameHTML = document.getElementById("productName");
             let productDesHTML = document.getElementById("productDescription");
@@ -55,7 +71,22 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
             showImagesGallery(product.images);
+         
+            getJSONData(PRODUCTS_URL).then(function(resultObj){
+                if (resultObj.status === "ok"){
+                    productsArray = resultObj.data;
+                    rpArray = resultObj.data;
+    
+             console.log(rpArray)
+                    
+    
+                }
+                showRelatedProducts(rpArray, relatedproduct);
+            })
         }
+
+
+
         getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
             if (resultObj.status === "ok")
             {
