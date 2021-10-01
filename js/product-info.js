@@ -20,12 +20,24 @@ function showImagesGallery(array){
 }
 
 function showRelatedProducts(rpArray, productsArray){
-    //let htmlContentToAppend = "";
     for( let i=0;  i<rpArray.length; i++){
-      // let product = productsArray;
-        document.getElementById("relatedProducts").innerHTML += `<h1><br>` + rpArray[productsArray[i]].name +`</h1><br> `;
-       // htmlContentToAppend += `<h4>`+ product.name +`</h4>`;
-        
+        document.getElementById("relatedProducts").innerHTML += `
+
+
+
+        <div class="d-block mb-4 h-100">
+
+<div class="card" style="width: 18rem;">
+<a href="products.html">
+  <img src="` + rpArray[productsArray[i]].imgSrc  +`" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">` + rpArray[productsArray[i]].name + `</h5>
+    <p class="card-text">` + rpArray[productsArray[i]].description +`</p>
+    </a>
+    </div> </div>
+</div>`
+
+
 
     }
 }
