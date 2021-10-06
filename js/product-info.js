@@ -1,10 +1,10 @@
 var product = {};
 var commentsArray = [];
-function showImagesGallery(array){
+function showImagesGallery(array) {
 
     let htmlContentToAppend = "";
 
-    for(let i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
         let imageSrc = array[i];
 
         htmlContentToAppend += `
@@ -19,38 +19,36 @@ function showImagesGallery(array){
     }
 }
 
-function showRelatedProducts(rpArray, productsArray){
-    for( let i=0;  i<rpArray.length; i++){
+
+
+function showRelatedProducts(rpArray, productsArray) {
+    for (let i = 0; i < rpArray.length; i++) {
         document.getElementById("relatedProducts").innerHTML += `
 
 
-
-        <div class="d-block mb-4 h-100">
-
-<div class="card" style="width: 18rem;">
-<a href="products.html">
-  <img src="` + rpArray[productsArray[i]].imgSrc  +`" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">` + rpArray[productsArray[i]].name + `</h5>
-    <p class="card-text">` + rpArray[productsArray[i]].description +`</p>
-    </a>
-    </div> </div>
+<div class="d-block mb-4 h-100">
+    <div class="card" style="width: 18rem;">
+        <a href="products.html">
+            <img src="` + rpArray[productsArray[i]].imgSrc + `" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">` + rpArray[productsArray[i]].name + `</h5>
+                <p class="card-text">` + rpArray[productsArray[i]].description + `</p>
+            </div> 
+        </a>
+    </div>
 </div>`
-
-
-
     }
 }
 
 
 
-function showComments(commentsArray){
+function showComments(commentsArray) {
     let htmlContentToAppend = "";
-    for(let i=0; i<commentsArray.length; i++){
+    for (let i = 0; i < commentsArray.length; i++) {
         let comment = commentsArray[i];
 
         htmlContentToAppend += `
-        <p><b> ` + comment.user + " " + comment.score +`</b></p> 
+        <p><b> ` + comment.user + " " + comment.score + `</b></p> 
         <p> ` + comment.description + `</p> 
         <p> ` + comment.dateTime + `</p> <br><hr>`
     }
@@ -60,15 +58,12 @@ function showComments(commentsArray){
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
             product = resultObj.data;
             relatedproduct = product.relatedProducts;
-            console.log(product);
-            console.log(relatedproduct);
-           
+
             let productNameHTML = document.getElementById("productName");
             let productDesHTML = document.getElementById("productDescription");
             let productCostHTML = document.getElementById("productCost");
@@ -83,15 +78,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
             showImagesGallery(product.images);
-         
-            getJSONData(PRODUCTS_URL).then(function(resultObj){
-                if (resultObj.status === "ok"){
+
+            getJSONData(PRODUCTS_URL).then(function (resultObj) {
+                if (resultObj.status === "ok") {
                     productsArray = resultObj.data;
                     rpArray = resultObj.data;
-    
-             console.log(rpArray)
-                    
-    
+
                 }
                 showRelatedProducts(rpArray, relatedproduct);
             })
@@ -99,11 +91,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
 
-        getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
-            if (resultObj.status === "ok")
-            {
+        getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+            if (resultObj.status === "ok") {
                 commentsArray = resultObj.data;
-               
+
                 showComments(commentsArray);
             }
         });
