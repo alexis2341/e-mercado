@@ -2,9 +2,7 @@
 function showCartInfo(array){
     for (let i = 0; i < array.articles.length; i++) {
         let carrito = array.articles[i]
-    
-
-        document.getElementById("cart").innerHTML += 
+    document.getElementById("cart").innerHTML += 
     `<div class="row">
     <div id="col1" class="col-12 col-md-9 mb-1">
     <div class="card mb-3">
@@ -16,7 +14,7 @@ function showCartInfo(array){
             <div class="card-body">
               <h5 class="card-title">${carrito.name}</h5>
               <p class="card-text">Costo: ${carrito.currency} ${carrito.unitCost} </p>
-              <input type="number">
+              <input id="campoNumerico" onchange="cuentaSubTotal()" type="number">
               <a href="#" class="btn btn-primary">Comprar</a>
               <hr>
               <p class="card-text"><small class="text-muted">quedan ${carrito.count} unidades</small></p>
@@ -48,37 +46,27 @@ function showCartInfo(array){
         <div class="card-body">
           <h5 class="card-title">Subtotal:</h5>
           <h6 class="card-subtitle mb-2 text-muted">Costo producto</h6>
+          <p id="total">asdf </p>
           <h6 class="card-subtitle mb-2 text-muted">Costo envío</h6>
           <hr>
           <h6 class=""card-title>Total</h6>
   
       </div> </div>
-  
-   
-  
-  
-  
-  
     </div>
-  
-  
-  
-    </div>
-  
-  
-  
-  </div>`
+</div>
+</div>`
+}}
 
 
+function cuentaSubTotal() {
+  for (let i = 0; i < array.articles.length; i++) {
+    let carrito = array.articles[i]
 
-
-
-
-
-
-
-
-    }}
+  let num = document.getElementById("campoNumerico").value;
+  let mult = carrito.unitCost;
+  let total = num * mult;
+  document.getElementById("total").innerHTML = total; 
+}}
 
 
 
@@ -94,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             array = resultObj.data;
 
             showCartInfo(array);
+          
 
 
 
