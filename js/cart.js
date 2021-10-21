@@ -46,7 +46,7 @@ function showCartInfo(array){
         <div class="card-body">
           <h5 class="card-title">Subtotal:</h5>
           <h6 class="card-subtitle mb-2 text-muted">Costo producto</h6>
-          <p id="total">asdf </p>
+          <p id="total"></p>
           <h6 class="card-subtitle mb-2 text-muted">Costo envío</h6>
           <hr>
           <h6 class=""card-title>Total</h6>
@@ -88,4 +88,3 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
 }})});
-/// ESTO ES JESUCRISTO //// array.articles[0].name
