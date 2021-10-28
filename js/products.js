@@ -44,7 +44,8 @@ function showProductsList(productsArray){
         htmlContentToAppend += `
         <a href="product-info.html" class="list-group-item list-group-item-action">
         <div class="list-group-item list-group-item-action">
-            <div class="row">
+            <div class="d-inline-flex">
+            
                 <div class="col-3">
                     <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
                 </div>
