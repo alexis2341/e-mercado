@@ -33,9 +33,9 @@ function showCartInfo(array){
           <h6 class="card-subtitle mb-5 text-muted">Elegí entre las opciones :)</h6>
           
           <select id="Envios">
-            <option value="Zona1">Zona 1</option>
-            <option value="Zona2">Zona 2</option>
-            <option value="Zona3">Zona 3</option>
+            <option value="Zona1">Standard (12 a 15 días) - Costo del 5% sobre el subtotal.</option>
+            <option value="Zona2">Express (5-8 días) - Costo del 7% sobre el subtotal.</option>
+            <option value="Zona3">Premium (2-5 días) - Costo del 15% sobre el subtotal.</option>
           </select>
   
         </div>
@@ -65,6 +65,7 @@ function cuentaSubTotal() {
   let num = document.getElementById("campoNumerico").value;
   let mult = carrito.unitCost;
   let total = num * mult;
+  console.log(total)
   document.getElementById("total").innerHTML = total; 
 }}
 
