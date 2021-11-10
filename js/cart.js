@@ -32,7 +32,7 @@ function showCartInfo(array){
           <h5 class="card-title">COSTO DE ENVÍO:</h5>
           <h6 class="card-subtitle mb-5 text-muted">Elegí entre las opciones :)</h6>
           
-          <select id="Envios">
+          <select id="Envios" class="col">
             <option value="Zona1">Standard (12 a 15 días) - Costo del 5% sobre el subtotal.</option>
             <option value="Zona2">Express (5-8 días) - Costo del 7% sobre el subtotal.</option>
             <option value="Zona3">Premium (2-5 días) - Costo del 15% sobre el subtotal.</option>
