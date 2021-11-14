@@ -14,10 +14,8 @@ function showCartInfo(array){
             <div class="card-body">
               <h5 class="card-title">${carrito.name}</h5>
               <p class="card-text">Costo: ${carrito.currency} ${carrito.unitCost} </p>
-              <input id="campoNumerico" onchange="cuentaSubTotal()" type="number">
-              <a href="#" class="btn btn-primary">Comprar</a>
-              <hr>
-              <p class="card-text"><small class="text-muted">quedan ${carrito.count} unidades</small></p>
+              <input id="campoNumerico" onchange="cuentaSubTotal()" type="number" value="${carrito.count}">
+
             </div>
           </div>
         </div>
@@ -60,70 +58,28 @@ function showCartInfo(array){
           <h6 class="card-title col">Total</h6>
           <p id="total" class="col"></p>
           </div>
-          <button class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#formaDePago" type="button">Elegir metodo de pago</button>
-          
-  
-      </div> </div>
-    </div>
-</div>
-</div>
-<!--MODAL-->
-  <div class="modal fade" id="formaDePago" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
 
-<!--ACORDION-->
-
-<div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-        Pagar con Tarjeta de Crédito
-      </button>
-    </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
-        <div class="container"></div>
-        <img class="img-fluid img-thumbnail" src="logos tarjetas.png" alt="">
-
-
-<form id="form" class="needs-validation" novalidate>
-      <label for="cardName">Nombre Titular:</label>
-      <input class="form-control" type="text" name="" id="cardName"  required>
-      <div class="invalid-feedback">
-        Por favor completa el campo
-      </div>
-      <label for="cardNum">Número de la tarjeta:</label>
-      <input id="cardNum" class="form-control" type="text" required>
-      <div class="invalid-feedback">
-        Por favor completa el campo
-      </div>
-
-      <label for="vto">Vto:</label>
-      <input  class="form-control" type="date" placeholder="01/2022" name="" id="vto" required>
-      <div class="invalid-feedback">
-        Por favor completa el campo
-      </div>
-
-      <label for="cvv">CVV</label>
-      <input class="form-control" type="text" placeholder="235" name="" id="cvv" required>
-      <div class="invalid-feedback">
-        Por favor completa el campo
-      </div>
-
-      <br>
-      <button onclick="formFuncion()" type="submit" class="btn btn-lg btn-danger">Pagar</button>
-      <br>
-      <div id="alert" ></div>
-        
-</form>`
+`
 }}
 
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+  
+          event.preventDefault();
+          event.stopPropagation();
+        
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+  })();
 let subTotal
 function cuentaSubTotal() {
   for (let i = 0; i < array.articles.length; i++) {
@@ -145,7 +101,7 @@ function cuentaEnvio(){
      document.getElementById("costoEnvio").innerHTML ="UYU " + stand;
      document.getElementById("total").innerHTML = "UYU" + (parseInt(stand) + parseInt(subTotal));
   }else if (tipoDeEnvio === "express"){
-    let expr =  Math.round(subTotal * 0.070);
+    let expr =  Math.round(subTotal * 0.07);
     document.getElementById("costoEnvio").innerHTML ="UYU " + expr;
     document.getElementById("total").innerHTML = "UYU" + (parseInt(expr) + parseInt(subTotal));
   }else if (tipoDeEnvio === "premium"){
@@ -155,66 +111,39 @@ function cuentaEnvio(){
   }
 
 }
-(function () {
-  'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
 
-          event.preventDefault()
-          event.stopPropagation()
+
+
         
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
-
-
-
-
-
-
-function formFuncion(){
-  let form = document.getElementById("form")
-  let alert = document.getElementById("alert")
-  let cardName = document.getElementById("cardName")
-  let cardNum = document.getElementById("cardNum")
-  let vto = document.getElementById("vto")
-  let cvv = document.getElementById("cvv")
-
- // if (form.getAttribute ("class") === 'needs-validation was-validated'){
-    if (cardName.value && cardNum.value && vto.value && cvv.value != "" ){
-      alert.innerHTML = `<div class="alert alert-success" role="alert">
-    Procesaste el pago correctamente, Gracias crack ;)
-  </div>`
-
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+        function formFuncion(){
+            let alert = document.getElementById("alert")
+            let cardName = document.getElementById("cardName")
+            let cardNum = document.getElementById("cardNum")
+            let vto = document.getElementById("vto")
+            let cvv = document.getElementById("cvv")
+        if (cardName.value && cardNum.value && vto.value && cvv.value != "" ){
+                alert.innerHTML = ` <br> <hr>   <div class="alert alert-success" role="alert">
+                Procesaste el pago correctamente, Gracias crack ;)
+        </div>`
+        
+        
+            }
+        
+        }
+         
+        function tBancaria(){ 
+            if (document.getElementById("select1").value != 0){
+                document.getElementById("alert2").innerHTML = 
+                ` <br> <hr>   <div class="alert alert-success" role="alert">
+                Procesaste el pago correctamente, Gracias crack ;)
+        </div>`
+        
+            }
+        
+        }
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de

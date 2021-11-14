@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
@@ -28,7 +27,9 @@
       }
     }
   </style>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
@@ -54,6 +55,129 @@
   <div class="container p-5">
 
     <div id="cart"></div>
+    <div>
+      <hr>
+      <br>
+      <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+        Elegir forma de Pago
+      </button>
+        
+
+    </div> </div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Forma de Pago</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="accordion" id="accordionExample">
+
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Pagar con Tarjeta de Crédito
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!--Pago con tarjeta-->
+
+                    <img class="img-fluid img-thumbnail" src="logos tarjetas.png" alt="">
+                    <form class="needs-validation" novalidate>
+                        <div class="form-row">
+                          
+                            <label for="cardName">Nombre Titular:</label>
+                            <input type="text" class="form-control" id="cardName" required>
+                            <div class="invalid-feedback">
+                                Por favor completa el campo
+                              </div>
+                         
+                         
+                            <label for="cardNum">Número de la tarjeta:</label>
+                            <input type="text" class="form-control" id="cardNum" placeholder="1234 5679 9101 1121"  required>
+                            <div class="invalid-feedback">
+                                Por favor completa el campo
+                              </div>
+                          
+                          
+                            <label for="vto">Vto:</label>
+                            <input type="date" class="form-control" id="vto"  required>
+                            <div class="invalid-feedback">
+                                Por favor completa el campo
+                              </div>
+                            
+                            
+                                <label for="cvv">CVV:</label>
+                                <input type="text" class="form-control" placeholder="235" id="cvv"  required>
+                                <div class="invalid-feedback">
+                                    Por favor completa el campo
+                                  </div>
+                               
+                        </div>
+                        <br>
+                        <button onclick="formFuncion()" class="btn btn-danger" type="submit">Finalizar Pago</button>
+                        <div id="alert" ></div>
+                      </form>
+                
+                
+                
+                
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Pagar con Transferencia Bancaria
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                   <!--Pago con transferencia bancaria-->
+                    <h6>Elegí tu banco:</h6>
+                    <select name="bancos" id="select1">
+                        <option value="0">Elegí entre las opciones</option>
+                        <option value="saab">Itaú </option>
+                        <option value="Santander">Santander</option>
+                        <option value="Heritage">Banque Heritage</option>
+                        <option value="BBVA">BBVA</option>
+                        <option value="Citibank">Citibank</option>
+                        <option value="HSBC">HSBC Bank</option>
+                        <option value="Scotiabank">Scotiabank </option>
+                        <option value="BROU">BROU</option>
+                    </select>
+                    <br>
+                    <button onclick="tBancaria()" class="btn btn-danger">Finalizar Pago</button>
+                    <div id="alert2"></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+</div>
+</div>
+
+
+    </div>
 
   </div>
   <div id="spinner-wrapper">
@@ -64,10 +188,10 @@
       <div></div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
 </body>
